@@ -6,7 +6,7 @@ One of a series of microsite landing pages A/B-tested against Perfora's standard
 
 ## Live file
 
-- [`smart-dental-flosser-microsite.html`](smart-dental-flosser-microsite.html) — the complete page. Fully self-contained (hero image inlined as a data URI). The only external request is Google Fonts.
+- [`index.html`](index.html) — the complete page, served at the site root. Fully self-contained (hero image inlined as a data URI); the only external request is Google Fonts. Named `index.html` so static hosts (Vercel, Netlify, GitHub Pages) serve it at `/`.
 
 ## Product
 
@@ -47,7 +47,7 @@ To swap in a final campaign photo, replace the `<img class="hero-img">` source i
 1. Shopify Admin → Online Store → Themes → Edit Code
 2. Create `templates/page.microsite-smart-dental-flosser.liquid`
 3. Add `{% layout none %}` at the top
-4. Paste the full contents of `smart-dental-flosser-microsite.html` below that line
+4. Paste the full contents of `index.html` below that line
 5. Assign the template to the relevant Page in Pages settings
 
 ## Dev notes
