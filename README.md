@@ -28,19 +28,20 @@ One of a series of microsite landing pages A/B-tested against Perfora's standard
 ## Design
 
 - **Type:** Spectral (headings) + Inter (body) — loaded in one Google Fonts request
-- **Palette:** deep purple / lavender editorial tones derived from the Pinterest design reference, lime accent for pills, high-contrast CTAs
-- **Layout:** mobile-first, 1100px max content width, vanilla JS only (no frameworks)
-- **Sections:** sticky header → hero → problem/solution → features → mid CTA → how-to-use → UGC placeholder → reviews → FAQ → final CTA
+- **Style:** graphic-led and scannable — deep-purple/lavender palette with a lime accent, floating product cutouts, circular lifestyle imagery, icon tiles, pill badges and color-blocked sections (inspired by the reference, in Perfora's brand)
+- **Layout:** mobile-first, 1100px max content width, vanilla JS only (no frameworks), inline SVG icon sprite
+- **16 sections:** header → hero → trust strip → problem/solution → benefit tiles → vs-string-floss comparison → modes & nozzles → mid CTA → how-to-use → what's-inside → who-it's-for → expert/trust → UGC placeholder → reviews → FAQ → final CTA
 
-## Hero image
+## Visuals
 
-The hero is AI-composed: the **real product image from the PDP** (embedded unaltered) lifted onto an editorial purple campaign scene matching the design reference. Source files in [`assets/`](assets/):
+The hero is a **layered HTML/CSS composition** — a circular lifestyle shot of the product in use, the floating product cutout, and animated pill/callout cards on a purple graphic background. All imagery is built from the **real PDP photography**, re-cut and recoloured to the brand palette. Assets in [`assets/`](assets/):
 
-- `flosser-hero.jpg` — final web-optimised hero (also inlined in the HTML)
-- `product-cutout.png` — the product flat-lay with its background removed (transparent PNG)
-- `hero-stage.html` — the CSS composition stage used to render the scene
+- `model-lifestyle.jpg` — PDP model shot, background recoloured to brand lavender (hero + expert section)
+- `flosser-standing.png` — the assembled flosser, background removed (transparent, floating in the hero)
+- `nozzles.png` — the 5 nozzle tips, background removed (modes & nozzles section)
+- `kit.png` — full kit, background removed (what's-inside section)
 
-To swap in a final campaign photo, replace the `<img class="hero-img">` source in the HTML (look for the `<!-- HERO IMAGE -->` comment).
+Product images are **referenced from `assets/`** (relative paths) so the page stays lean and fast on a static host. For Shopify, upload these to the theme/Files and swap the `src` paths for the Shopify CDN URLs.
 
 ## Deploy on Shopify
 
