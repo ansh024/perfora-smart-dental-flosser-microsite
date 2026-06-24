@@ -40,6 +40,9 @@ The hero is a **layered HTML/CSS composition** — a circular lifestyle shot of 
 - `flosser-standing.png` — the assembled flosser, background removed (transparent, floating in the hero)
 - `nozzles.png` — the 5 nozzle tips, background removed (modes & nozzles section)
 - `kit.png` — full kit, background removed (what's-inside section)
+- `cable.png` — USB-C cable, background removed (how-to-use step)
+
+The **how-to-use** steps use real product photos (device, nozzles, model-in-use, cable) on lavender tiles rather than icons. To swap in custom step illustrations, replace the four `<img>` sources in the `#how-to-use` section (square ~600×600 works best).
 
 Product images are **referenced from `assets/`** (relative paths) so the page stays lean and fast on a static host. For Shopify, upload these to the theme/Files and swap the `src` paths for the Shopify CDN URLs.
 

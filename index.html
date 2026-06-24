@@ -155,9 +155,13 @@
   .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .tile{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;transition:transform .2s,box-shadow .2s}
   .tile:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(27,14,56,.1)}
-  .tile:nth-child(3n+1) .ibadge{background:#efe7fb;color:var(--violet)}
-  .tile:nth-child(3n+2) .ibadge{background:#fbe4ef;color:#c0567e}
-  .tile:nth-child(3n) .ibadge{background:#eef6cf;color:#7d9416}
+  .tile:nth-child(3n+1){background:#f3ecfd}
+  .tile:nth-child(3n+2){background:#fdeef5}
+  .tile:nth-child(3n){background:#f4f9e6}
+  .tile .ibadge{background:#fff}
+  .tile:nth-child(3n+1) .ibadge{color:var(--violet)}
+  .tile:nth-child(3n+2) .ibadge{color:#c0567e}
+  .tile:nth-child(3n) .ibadge{color:#7d9416}
   .tile h3{font-size:20px;margin:18px 0 8px}
   .tile p{font-size:15px;color:var(--muted);line-height:1.55}
 
@@ -207,11 +211,12 @@
   #how-to-use{background:var(--cream)}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:44px}
   .step{text-align:center;position:relative}
-  .step .sn{font-family:'Spectral';font-weight:700;font-size:18px;color:var(--violet);
-    width:40px;height:40px;border-radius:50%;background:#efe7fb;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
-  .step .si{width:78px;height:78px;border-radius:22px;background:#fff;border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--violet)}
-  .step .si .ic{width:34px;height:34px}
+  .step .sn{position:absolute;top:10px;left:10px;z-index:2;font-family:'Spectral';font-weight:700;font-size:16px;color:#fff;
+    width:32px;height:32px;border-radius:50%;background:var(--violet);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(27,14,56,.28)}
+  .step .simg{width:100%;aspect-ratio:1/1;border-radius:20px;overflow:hidden;margin:0 auto 16px;position:relative;
+    background:radial-gradient(circle at 50% 38%,#fff,#e7dcf7);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .step .simg img{max-height:80%;max-width:82%;width:auto}
+  .step .simg.cover img{height:100%;width:100%;max-height:none;max-width:none;object-fit:cover;object-position:50% 26%}
   .step h3{font-size:18px;margin-bottom:6px}.step p{font-size:14px;color:var(--muted)}
 
   /* ---------- WHAT'S INSIDE ---------- */
@@ -230,11 +235,12 @@
   /* ---------- WHO IT'S FOR ---------- */
   #who{background:var(--lav-50)}
   .who-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-  .who-c{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 16px;text-align:center}
-  .who-c .wi{width:60px;height:60px;border-radius:50%;background:#efe7fb;color:var(--violet);
+  .who-c{background:linear-gradient(165deg,var(--violet),var(--violet-deep));border:0;border-radius:20px;padding:28px 16px;text-align:center;
+    box-shadow:0 16px 34px rgba(27,14,56,.14)}
+  .who-c .wi{width:60px;height:60px;border-radius:50%;background:rgba(205,235,94,.16);color:var(--lime);
     display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
   .who-c .wi .ic{width:28px;height:28px}
-  .who-c b{font-family:'Spectral';font-size:16px;color:var(--ink);display:block;line-height:1.2}
+  .who-c b{font-family:'Spectral';font-size:16px;color:#fff;display:block;line-height:1.2}
 
   /* ---------- EXPERTS / TRUST ---------- */
   #experts{background:linear-gradient(160deg,#2c1657,#1b0e38);color:#fff}
@@ -305,9 +311,9 @@
     section{padding:60px 0}.wrap{padding:0 20px}.sec-head{margin-bottom:38px}
     #hero{padding:34px 0 56px}
     .hero-grid{grid-template-columns:1fr;gap:8px}
-    .hero-visual{order:-1;height:380px;margin-bottom:6px}
+    .hero-visual{height:360px;margin-top:18px}
     .hero-disc{width:300px;height:300px}.hero-ring{width:340px;height:340px}.hero-model{width:272px;height:272px}
-    .hero-flosser{height:312px;right:2px;bottom:-10px}
+    .hero-flosser{display:none}
     .hero-cob{left:0;top:8px}.hero-cob2{display:none}
     .cob{padding:9px 12px}.cob .n{font-size:21px}
     .hero-trust{gap:14px;margin-top:24px}
@@ -534,7 +540,7 @@
     <span class="pill" style="margin-bottom:16px">Limited-time 16% off</span>
     <h2>Ready to upgrade your routine?</h2>
     <p>Join 50,000+ Perfora customers flossing smarter every day.</p>
-    <a class="btn btn-lime" href="/cart?items[]=PER2855:1">Shop Now — Add to Cart <span class="arw">&rarr;</span></a>
+    <a class="btn btn-lime" href="/cart?items[]=PER2855:1">Shop Now <span class="arw">&rarr;</span></a>
   </div>
 </section>
 
@@ -547,10 +553,10 @@
       <p>No appointment, no learning curve — just water.</p>
     </div>
     <div class="steps">
-      <div class="step"><span class="sn">1</span><span class="si"><svg class="ic"><use href="#i-drop"/></svg></span><h3>Fill the tank</h3><p>Add water — or a splash of mouthwash — to the 300ml tank.</p></div>
-      <div class="step"><span class="sn">2</span><span class="si"><svg class="ic"><use href="#i-spray"/></svg></span><h3>Pick a nozzle &amp; mode</h3><p>New to it? Start on Soft. Clip on the tip that suits you.</p></div>
-      <div class="step"><span class="sn">3</span><span class="si"><svg class="ic"><use href="#i-tooth"/></svg></span><h3>Glide the gumline</h3><p>Lean over the sink and trace each tooth. About 60 seconds.</p></div>
-      <div class="step"><span class="sn">4</span><span class="si"><svg class="ic"><use href="#i-bolt"/></svg></span><h3>Rinse &amp; recharge</h3><p>Empty, rinse the nozzle. One USB-C charge lasts 30–45 days.</p></div>
+      <div class="step"><span class="sn">1</span><span class="simg"><img src="assets/flosser-standing.png" alt="Fill the flosser tank with water"></span><h3>Fill the tank</h3><p>Add water — or a splash of mouthwash — to the 300ml tank.</p></div>
+      <div class="step"><span class="sn">2</span><span class="simg"><img src="assets/nozzles.png" alt="Choose one of the five nozzle tips"></span><h3>Pick a nozzle &amp; mode</h3><p>New to it? Start on Soft. Clip on the tip that suits you.</p></div>
+      <div class="step"><span class="sn">3</span><span class="simg cover"><img src="assets/model-lifestyle.jpg" alt="Glide the flosser along the gumline"></span><h3>Glide the gumline</h3><p>Lean over the sink and trace each tooth. About 60 seconds.</p></div>
+      <div class="step"><span class="sn">4</span><span class="simg"><img src="assets/cable.png" alt="Recharge with the USB-C cable"></span><h3>Rinse &amp; recharge</h3><p>Empty, rinse the nozzle. One USB-C charge lasts 30–45 days.</p></div>
     </div>
   </div>
 </section>
@@ -598,7 +604,7 @@
 </section>
 
 <!-- SECTION: EXPERTS (dentist / trust-led) -->
-<section id="experts">
+<section id="experts" class="on-dark">
   <div class="wrap">
     <div class="exp">
       <div class="exp-visual">
