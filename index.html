@@ -127,6 +127,46 @@
   .pill-float{background:var(--lime);color:#23300a;font-weight:700;font-size:13px;padding:9px 15px;border-radius:50px;
     box-shadow:0 12px 30px rgba(120,150,30,.45);display:inline-flex;gap:7px;align-items:center}
 
+  /* ---------- BUY / LISTING ---------- */
+  #buy{background:linear-gradient(162deg,#f3ecfd 0%,#fbf8f3 46%,#efe7fb 100%)}
+  .buy-head{max-width:680px;margin:0 auto 42px;text-align:center}
+  .buy-head h2{font-size:clamp(28px,4.4vw,46px);margin:14px 0 10px;letter-spacing:-.01em}
+  .buy-head h2 i{font-style:italic;color:var(--violet)}
+  .buy-head p{color:var(--muted);font-size:16.5px}
+  .buy-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .buy-visual{position:relative;background:radial-gradient(ellipse 92% 72% at 50% 100%,#e7dcf7,#fff 76%);
+    border:1px solid var(--line);border-radius:28px;padding:34px;text-align:center;box-shadow:0 18px 50px rgba(27,14,56,.1)}
+  .buy-visual img{margin:0 auto;max-height:380px;width:auto}
+  .off-badge{position:absolute;top:-12px;right:-8px;background:var(--violet);color:#fff;font-weight:700;font-size:13px;
+    padding:7px 16px;border-radius:50px;box-shadow:0 10px 24px rgba(87,51,160,.4)}
+  .buy-col{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  .opt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;
+    background:#fff;border:2px solid var(--line);border-radius:18px;padding:18px 20px;cursor:pointer;
+    transition:border-color .2s,box-shadow .2s;font-family:inherit;width:100%}
+  .opt:hover{border-color:var(--lilac)}
+  .opt.selected{border-color:var(--violet);box-shadow:0 8px 28px rgba(87,51,160,.16)}
+  .opt-badge{position:absolute;top:-12px;left:18px;background:linear-gradient(90deg,var(--violet),var(--purple));
+    color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:50px;letter-spacing:.03em}
+  .opt-l{display:flex;align-items:center;gap:13px}
+  .radio{width:20px;height:20px;border-radius:50%;border:2px solid #d3cbe6;flex:0 0 auto;position:relative}
+  .opt.selected .radio{border-color:var(--violet)}
+  .opt.selected .radio::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--violet)}
+  .opt-info b{font-family:'Spectral';font-size:16px;color:var(--ink);display:block}
+  .opt-info span{font-size:13.5px;color:var(--muted)}
+  .opt-price{text-align:right}
+  .opt-price b{font-family:'Spectral';font-size:20px;color:var(--ink);display:block}
+  .opt-price s{font-size:13px;color:var(--muted)}
+  .opt-price em{font-style:normal;font-size:12.5px;font-weight:600;color:#3f9142;display:block}
+  .buy-chips{display:flex;gap:10px}
+  .chip{flex:1;display:flex;align-items:center;gap:8px;background:#f3ecfd;border:1px solid #e3d8f7;border-radius:12px;
+    padding:11px 13px;font-size:12.5px;font-weight:500;color:var(--violet)}
+  .chip .ic{width:18px;height:18px;flex:0 0 auto;color:var(--violet)}
+  .buy-atc{justify-content:center;width:100%;font-size:16px;padding:17px 24px}
+  .buy-bin{display:flex;align-items:center;justify-content:center;width:100%;background:#fff;border:2px solid var(--violet);
+    color:var(--violet);font-family:'Inter';font-weight:600;font-size:15px;padding:14px 24px;border-radius:50px;text-decoration:none;transition:background .2s}
+  .buy-bin:hover{background:#f5f0ff}
+  .buy-rating{text-align:center;font-size:13px;color:var(--ink-2);margin-top:4px}
+
   /* ---------- TRUST STRIP ---------- */
   #trust{background:var(--lime);padding:0}
   .trust-row{display:flex;justify-content:space-between;gap:18px;padding:20px 24px;max-width:1180px;margin:0 auto;flex-wrap:wrap}
@@ -294,6 +334,7 @@
     .cob{padding:9px 12px}.cob .n{font-size:21px}
     .hero-trust{gap:14px;margin-top:24px}
     .tiles{grid-template-columns:1fr 1fr;gap:14px}.tile{padding:22px}
+    .buy-grid{grid-template-columns:1fr;gap:24px}.buy-visual{padding:26px}.buy-visual img{max-height:300px}
     .cmp-head,.cmp-row{grid-template-columns:1.3fr .85fr .85fr}
     .cmp-head>div{padding:14px 8px;font-size:13px}.cmp-row>div{padding:13px 8px}
     .cmp-row .feat{font-size:13.5px}
@@ -389,6 +430,43 @@
         <img class="hero-flosser" src="assets/flosser-standing.png" alt="Perfora Smart Dental Flosser Black Gold">
         <div class="hero-cob"><div class="cob"><span class="n">29%</span><span class="l">more effective<br><span>vs. string floss</span></span></div></div>
         <div class="hero-cob2"><span class="pill-float"><svg class="ic" style="width:15px;height:15px"><use href="#i-spark"/></svg> 5 cleaning modes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: BUY (listing / buy-box) -->
+<section id="buy">
+  <div class="wrap">
+    <div class="buy-head">
+      <span class="pill"><svg class="ic" style="width:15px;height:15px"><use href="#i-drop"/></svg> Smart Dental Flosser &middot; Black Gold</span>
+      <h2>The upgrade <i>your smile deserves.</i></h2>
+      <p>Join 2,000+ happy customers — backed by a 2-year warranty &amp; 15-day money-back.</p>
+    </div>
+    <div class="buy-grid">
+      <div class="buy-visual">
+        <span class="off-badge">16% OFF</span>
+        <img src="assets/flosser-standing.png" alt="Perfora Smart Dental Flosser Black Gold">
+      </div>
+      <div class="buy-col">
+        <button class="opt selected" data-qty="1">
+          <span class="opt-badge">&#10022; Most Popular</span>
+          <span class="opt-l"><span class="radio"></span>
+            <span class="opt-info"><b>Single Flosser</b><span>1 device &middot; Black Gold</span></span></span>
+          <span class="opt-price"><b>&#8377;3,039</b><s>&#8377;3,599</s><em>16% OFF</em></span>
+        </button>
+        <button class="opt" data-qty="2">
+          <span class="opt-l"><span class="radio"></span>
+            <span class="opt-info"><b>Family Duo</b><span>2 devices &middot; gift one</span></span></span>
+          <span class="opt-price"><b>&#8377;6,078</b><s>&#8377;7,198</s><em>16% OFF</em></span>
+        </button>
+        <div class="buy-chips">
+          <div class="chip"><svg class="ic"><use href="#i-rupee"/></svg> Earn 303 Perfora Coins</div>
+          <div class="chip"><svg class="ic"><use href="#i-check"/></svg> 15-Day Money-Back</div>
+        </div>
+        <a class="btn btn-lime buy-atc" href="/cart?items[]=PER2855:1">Add to Cart <span class="arw">&rarr;</span></a>
+        <a class="buy-bin" href="/cart?items[]=PER2855:1">Buy It Now</a>
+        <div class="buy-rating">&#9733; 4.8/5 &middot; 2,000+ reviews &middot; IPX7 Waterproof &middot; 2-Year Warranty</div>
       </div>
     </div>
   </div>
@@ -635,6 +713,16 @@
 <script>
   var header=document.getElementById('header');
   window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>8);},{passive:true});
+  document.querySelectorAll('#buy .opt').forEach(function(opt){
+    opt.addEventListener('click',function(){
+      document.querySelectorAll('#buy .opt').forEach(function(o){o.classList.remove('selected');});
+      opt.classList.add('selected');
+      var q=opt.getAttribute('data-qty');
+      var atc=document.querySelector('.buy-atc'),bin=document.querySelector('.buy-bin');
+      if(atc) atc.href='/cart?items[]=PER2855:'+q;
+      if(bin) bin.href='/cart?items[]=PER2855:'+q;
+    });
+  });
   document.querySelectorAll('.faq-q').forEach(function(btn){
     btn.addEventListener('click',function(){
       var item=btn.parentElement,open=item.classList.contains('open');
