@@ -30,7 +30,7 @@ One of a series of microsite landing pages A/B-tested against Perfora's standard
 - **Type:** Spectral (headings) + Inter (body) — loaded in one Google Fonts request
 - **Style:** graphic-led and scannable — deep-purple/lavender palette with a lime accent, floating product cutouts, circular lifestyle imagery, icon tiles, pill badges and color-blocked sections (inspired by the reference, in Perfora's brand)
 - **Layout:** mobile-first, 1100px max content width, vanilla JS only (no frameworks), inline SVG icon sprite
-- **16 sections:** header → hero → trust strip → problem/solution → benefit tiles → vs-string-floss comparison → modes & nozzles → mid CTA → how-to-use → what's-inside → who-it's-for → expert/trust → UGC placeholder → reviews → FAQ → final CTA
+- **15 sections:** header → hero → trust strip → benefit tiles → vs-string-floss comparison → modes & nozzles → mid CTA → how-to-use → what's-inside → who-it's-for → expert/trust → UGC placeholder → reviews → FAQ → final CTA
 
 ## Visuals
 
