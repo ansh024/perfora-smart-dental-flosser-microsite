@@ -248,15 +248,8 @@
     box-shadow:0 22px 55px rgba(27,14,56,.14)}
   .inside-banner img{width:100%;height:auto;display:block}
 
-  /* ---------- WHO IT'S FOR ---------- */
+  /* ---------- WHO IT'S FOR (designed banner) ---------- */
   #who{background:var(--lav-50)}
-  .who-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-  .who-c{background:linear-gradient(165deg,var(--violet),var(--violet-deep));border:0;border-radius:20px;padding:28px 16px;text-align:center;
-    box-shadow:0 16px 34px rgba(27,14,56,.14)}
-  .who-c .wi{width:60px;height:60px;border-radius:50%;background:rgba(205,235,94,.16);color:var(--lime);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
-  .who-c .wi .ic{width:28px;height:28px}
-  .who-c b{font-family:'Spectral';font-size:16px;color:#fff;display:block;line-height:1.2}
 
   /* ---------- EXPERTS / TRUST ---------- */
   #experts{background:linear-gradient(160deg,#2c1657,#1b0e38);color:#fff}
@@ -319,8 +312,7 @@
 
   /* ---------- responsive ---------- */
   @media (max-width:960px){
-    .modes-wrap,.inside,.exp{grid-template-columns:1fr;gap:28px}
-    .who-grid{grid-template-columns:repeat(3,1fr)}
+    .modes-wrap,.exp{grid-template-columns:1fr;gap:28px}
     .tiles{grid-template-columns:repeat(2,1fr)}
   }
   @media (max-width:768px){
@@ -339,15 +331,13 @@
     .cmp-head>div{padding:14px 8px;font-size:13px}.cmp-row>div{padding:13px 8px}
     .cmp-row .feat{font-size:13.5px}
     .steps{grid-template-columns:1fr 1fr;gap:26px 16px}
-    .inside-list{grid-template-columns:1fr 1fr;gap:10px}
-    .who-grid{grid-template-columns:1fr 1fr;gap:12px}
     .exp-claims{grid-template-columns:1fr}
     .rev-grid{grid-template-columns:1fr}
     .trust-row{gap:12px 18px;justify-content:center}.trust-row .ti{font-size:13px}
     .hd-price{display:none}
   }
   @media (max-width:430px){
-    .tiles,.who-grid,.inside-list{grid-template-columns:1fr}
+    .tiles{grid-template-columns:1fr}
     .hero-price .off{font-size:11px}
   }
 </style>
@@ -591,20 +581,12 @@
   </div>
 </section>
 
-<!-- SECTION: WHO (who it's for) -->
+<!-- SECTION: WHO (who it's for — designed banner) -->
 <section id="who">
   <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">Made for your smile</span>
-      <h2>Perfect if you're…</h2>
-    </div>
-    <div class="who-grid">
-      <div class="who-c"><span class="wi"><svg class="ic"><use href="#i-drop"/></svg></span><b>New to flossing</b></div>
-      <div class="who-c"><span class="wi"><svg class="ic"><use href="#i-tooth"/></svg></span><b>Wearing braces or implants</b></div>
-      <div class="who-c"><span class="wi"><svg class="ic"><use href="#i-heart"/></svg></span><b>Prone to sensitive gums</b></div>
-      <div class="who-c"><span class="wi"><svg class="ic"><use href="#i-suitcase"/></svg></span><b>Always travelling</b></div>
-      <div class="who-c"><span class="wi"><svg class="ic"><use href="#i-clock-fast"/></svg></span><b>Short on time</b></div>
-    </div>
+    <picture class="inside-banner">
+      <img src="assets/who-banner.jpg" alt="Flosser is suitable for every smile, every routine — great if you're new to flossing, wearing braces or implants, prone to sensitive gums, always travelling, or short on time">
+    </picture>
   </div>
 </section>
 

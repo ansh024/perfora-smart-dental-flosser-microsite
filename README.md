@@ -41,6 +41,7 @@ The hero is a **layered HTML/CSS composition** — a circular lifestyle shot of 
 - `nozzles.png` — the 5 nozzle tips, background removed (modes & nozzles section)
 - `cable.png` — USB-C cable, background removed (how-to-use step)
 - `whats-inside-wide.jpg` / `whats-inside-square.jpg` — finished "What's inside the box" banners (desktop / mobile), swapped responsively via `<picture>`
+- `who-banner.jpg` — finished "Flosser is suitable" banner (who-it's-for section; wide only — add a square version for a larger mobile rendering)
 
 The **how-to-use** steps use real product photos (device, nozzles, model-in-use, cable) on lavender tiles rather than icons. To swap in custom step illustrations, replace the four `<img>` sources in the `#how-to-use` section (square ~600×600 works best).
 
