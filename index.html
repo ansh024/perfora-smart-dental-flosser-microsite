@@ -100,12 +100,22 @@
   .hero-price .was{color:rgba(255,255,255,.5);text-decoration:line-through}
   .hero-price .off{background:var(--lime);color:#23300a;font-weight:700;font-size:12.5px;padding:5px 11px;border-radius:50px}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .hero-trust{display:flex;gap:22px;margin-top:30px;flex-wrap:wrap}
-  .hero-trust .t{display:flex;align-items:center;gap:10px;color:#fff}
-  .hero-trust .ic-circle{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center}
-  .hero-trust .ic-circle .ic{width:20px;height:20px;color:var(--lime)}
-  .hero-trust .t span{font-size:13px;line-height:1.25;color:rgba(255,255,255,.9);font-weight:500}
+  .social-proof{display:flex;gap:24px 38px;margin-top:32px;flex-wrap:wrap}
+  .sp-block{display:flex;align-items:center;gap:14px}
+  .avatars{display:flex}
+  .avatars img{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.92);
+    margin-left:-13px;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.28)}
+  .avatars img:first-child{margin-left:0}
+  .sp-text b{display:block;color:#fff;font-family:'Spectral';font-size:17px;line-height:1.12}
+  .sp-text span{display:block;color:rgba(255,255,255,.68);font-size:12px;max-width:215px;margin-top:4px;line-height:1.35}
+  .hero-benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px;padding-top:40px;
+    border-top:1px solid rgba(255,255,255,.14)}
+  .hb{display:flex;flex-direction:column;gap:12px}
+  .hb-ic{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;color:var(--lime)}
+  .hb-ic .ic{width:24px;height:24px}
+  .hb b{color:#fff;font-family:'Spectral';font-size:18px;line-height:1.1}
+  .hb span{color:rgba(255,255,255,.64);font-size:13px;line-height:1.4}
 
   .hero-visual{position:relative;height:520px}
   .hero-disc{position:absolute;width:430px;height:430px;border-radius:50%;left:50%;top:50%;
@@ -163,11 +173,6 @@
   .buy-bin:hover{background:#f5f0ff}
   .buy-rating{text-align:center;font-size:13px;color:var(--ink-2);margin-top:4px}
 
-  /* ---------- TRUST STRIP ---------- */
-  #trust{background:var(--lime);padding:0}
-  .trust-row{display:flex;justify-content:space-between;gap:18px;padding:20px 24px;max-width:1180px;margin:0 auto;flex-wrap:wrap}
-  .trust-row .ti{display:flex;align-items:center;gap:10px;color:#23300a;font-weight:600;font-size:14.5px}
-  .trust-row .ti .ic{width:22px;height:22px;color:#3c5208}
 
   /* ---------- BENEFIT TILES ---------- */
   #features{background:var(--cream)}
@@ -324,7 +329,8 @@
     .hero-flosser{display:none}
     .hero-cob{left:0;top:8px}.hero-cob2{display:none}
     .cob{padding:9px 12px}.cob .n{font-size:21px}
-    .hero-trust{gap:14px;margin-top:24px}
+    .social-proof{gap:18px;margin-top:26px}
+    .hero-benefits{grid-template-columns:1fr 1fr;gap:22px 16px;margin-top:38px;padding-top:30px}
     .tiles{grid-template-columns:1fr 1fr;gap:14px}.tile{padding:22px}
     .buy-grid{grid-template-columns:1fr;gap:24px}.buy-visual{padding:22px}
     .cmp-head,.cmp-row{grid-template-columns:1.3fr .85fr .85fr}
@@ -333,13 +339,15 @@
     .steps{grid-template-columns:1fr 1fr;gap:26px 16px}
     .exp-claims{grid-template-columns:1fr}
     .rev-grid{grid-template-columns:1fr}
-    .trust-row{gap:12px 18px;justify-content:center}.trust-row .ti{font-size:13px}
     .hd-price{display:none}
   }
   @media (max-width:430px){
     .tiles{grid-template-columns:1fr}
     .hero-price .off{font-size:11px}
   }
+
+  /* TEMP — sections hidden for flow review. Delete this block to restore them. */
+  #features, #modes, #cta-mid{display:none}
 </style>
 </head>
 <body>
@@ -396,8 +404,8 @@
     <div class="hero-grid">
       <div class="hero-copy">
         <span class="pill"><svg class="ic" style="width:15px;height:15px"><use href="#i-drop"/></svg> Smart Dental Flosser &middot; Black Gold</span>
-        <h1>Floss smarter. <i>In 60 seconds a day.</i></h1>
-        <p class="hero-sub">Water-powered flossing that's <b style="color:#fff">29% more effective</b> than string floss — gentle on gums, effortless on your routine.</p>
+        <h1>Floss once a day.<br><i>Less plaque every day.</i></h1>
+        <p class="hero-sub">The easiest way to maintain healthier gums, fresher breath, and a cleaner feeling&mdash;every single day.</p>
         <div class="hero-price">
           <span class="now">&#8377;3,039</span>
           <span class="was">&#8377;3,599</span>
@@ -407,10 +415,20 @@
           <a class="btn btn-lime" href="https://perforacare.com/cart?items[]=PER2855:1" target="_blank" rel="noopener noreferrer">Add to Cart <span class="arw">&rarr;</span></a>
           <a class="btn btn-light" href="#compare">Why it wins</a>
         </div>
-        <div class="hero-trust">
-          <div class="t"><span class="ic-circle"><svg class="ic"><use href="#i-water"/></svg></span><span>IPX7<br>Waterproof</span></div>
-          <div class="t"><span class="ic-circle"><svg class="ic"><use href="#i-shield"/></svg></span><span>2-Year<br>Warranty</span></div>
-          <div class="t"><span class="ic-circle"><svg class="ic"><use href="#i-bolt"/></svg></span><span>USB-C<br>Rechargeable</span></div>
+        <!-- PLACEHOLDER avatars — replace /assets/avatars/*.jpg with real customer photos -->
+        <div class="social-proof">
+          <div class="sp-block">
+            <div class="avatars">
+              <img src="assets/avatars/a1.jpg" alt=""><img src="assets/avatars/a2.jpg" alt=""><img src="assets/avatars/a3.jpg" alt=""><img src="assets/avatars/a4.jpg" alt=""><img src="assets/avatars/a5.jpg" alt="">
+            </div>
+            <div class="sp-text"><b>Sold 10,000+ Units</b><span>Loved by thousands of customers across India.</span></div>
+          </div>
+          <div class="sp-block">
+            <div class="avatars">
+              <img src="assets/avatars/a6.jpg" alt=""><img src="assets/avatars/a7.jpg" alt=""><img src="assets/avatars/a8.jpg" alt=""><img src="assets/avatars/a9.jpg" alt=""><img src="assets/avatars/a10.jpg" alt="">
+            </div>
+            <div class="sp-text"><b>Rated 4.5&#9733; by 2,500+ Users</b><span>Trusted by customers who made water flossing part of their daily routine.</span></div>
+          </div>
         </div>
       </div>
       <div class="hero-visual">
@@ -422,6 +440,12 @@
         <div class="hero-cob"><div class="cob"><span class="n">29%</span><span class="l">more effective<br><span>vs. string floss</span></span></div></div>
         <div class="hero-cob2"><span class="pill-float"><svg class="ic" style="width:15px;height:15px"><use href="#i-spark"/></svg> 5 cleaning modes</span></div>
       </div>
+    </div>
+    <div class="hero-benefits">
+      <div class="hb"><span class="hb-ic"><svg class="ic"><use href="#i-tooth"/></svg></span><b>Fights Plaque</b><span>Blasts away the build-up brushing leaves behind.</span></div>
+      <div class="hb"><span class="hb-ic"><svg class="ic"><use href="#i-heart"/></svg></span><b>Healthier Gums</b><span>Daily care that helps gums stop bleeding.</span></div>
+      <div class="hb"><span class="hb-ic"><svg class="ic"><use href="#i-leaf"/></svg></span><b>Fresh Breath</b><span>A cleaner, fresher mouth from morning to night.</span></div>
+      <div class="hb"><span class="hb-ic"><svg class="ic"><use href="#i-water"/></svg></span><b>Deep Cleans</b><span>Reaches between teeth where floss can't.</span></div>
     </div>
   </div>
 </section>
@@ -457,17 +481,6 @@
         <div class="buy-rating">&#9733; 4.8/5 &middot; 2,000+ reviews &middot; IPX7 Waterproof &middot; 2-Year Warranty</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- SECTION: TRUST -->
-<section id="trust">
-  <div class="trust-row">
-    <div class="ti"><svg class="ic"><use href="#i-tooth"/></svg> 29% More Effective</div>
-    <div class="ti"><svg class="ic"><use href="#i-water"/></svg> IPX7 Waterproof</div>
-    <div class="ti"><svg class="ic"><use href="#i-shield"/></svg> 2-Year Warranty</div>
-    <div class="ti"><svg class="ic"><use href="#i-bolt"/></svg> 30–45 Day Battery</div>
-    <div class="ti"><svg class="ic"><use href="#i-heart"/></svg> 15-Day Returns</div>
   </div>
 </section>
 
