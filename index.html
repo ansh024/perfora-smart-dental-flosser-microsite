@@ -90,32 +90,26 @@
   /* ---------- HERO ---------- */
   #hero{background:radial-gradient(120% 90% at 82% 10%,#3c2270 0%,rgba(60,34,112,0) 46%),
     linear-gradient(160deg,#241046 0%,#2c1657 42%,#4b2d8e 100%);padding:56px 0 70px}
-  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:30px;align-items:center}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:30px;align-items:center}
   .hero-copy{color:#fff;position:relative;z-index:2}
-  #hero h1{color:#fff;font-size:clamp(38px,5.3vw,64px);font-weight:600;letter-spacing:-.015em;margin:18px 0 14px}
+  #hero h1{color:#fff;font-size:clamp(34px,4.4vw,48px);font-weight:600;letter-spacing:-.015em;margin:16px 0 14px}
   #hero h1 i{font-style:italic;font-weight:500;color:var(--lilac)}
+  @media(min-width:769px){#hero h1 i{white-space:nowrap}}
   .hero-sub{font-size:18.5px;color:rgba(255,255,255,.82);max-width:440px;margin-bottom:22px}
   .hero-price{display:flex;align-items:baseline;gap:11px;margin-bottom:22px}
   .hero-price .now{font-family:'Spectral';font-size:30px;font-weight:600;color:#fff}
   .hero-price .was{color:rgba(255,255,255,.5);text-decoration:line-through}
   .hero-price .off{background:var(--lime);color:#23300a;font-weight:700;font-size:12.5px;padding:5px 11px;border-radius:50px}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .social-proof{display:flex;gap:24px 38px;margin-top:32px;flex-wrap:wrap}
-  .sp-block{display:flex;align-items:center;gap:14px}
+  .social-proof{display:flex;align-items:center;gap:16px;margin-top:32px;flex-wrap:wrap}
   .avatars{display:flex}
-  .avatars img{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.92);
+  .avatars img{width:40px;height:40px;border-radius:50%;border:2px solid rgba(255,255,255,.92);
     margin-left:-13px;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.28)}
   .avatars img:first-child{margin-left:0}
-  .sp-text b{display:block;color:#fff;font-family:'Spectral';font-size:17px;line-height:1.12}
-  .sp-text span{display:block;color:rgba(255,255,255,.68);font-size:12px;max-width:215px;margin-top:4px;line-height:1.35}
-  .hero-benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px;padding-top:40px;
-    border-top:1px solid rgba(255,255,255,.14)}
-  .hb{display:flex;flex-direction:column;gap:12px}
-  .hb-ic{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;color:var(--lime)}
-  .hb-ic .ic{width:24px;height:24px}
-  .hb b{color:#fff;font-family:'Spectral';font-size:18px;line-height:1.1}
-  .hb span{color:rgba(255,255,255,.64);font-size:13px;line-height:1.4}
+  .sp-stats{display:flex;align-items:center;gap:16px}
+  .sp-stat b{display:block;color:#fff;font-family:'Spectral';font-size:19px;font-weight:600;line-height:1.05}
+  .sp-stat span{display:block;color:rgba(255,255,255,.62);font-size:12px;margin-top:2px}
+  .sp-bar{width:1px;height:32px;background:rgba(255,255,255,.22)}
 
   .hero-visual{position:relative;height:520px}
   .hero-disc{position:absolute;width:430px;height:430px;border-radius:50%;left:50%;top:50%;
@@ -243,10 +237,9 @@
   .step .simg.cover img{height:100%;width:100%;max-height:none;max-width:none;object-fit:cover;object-position:50% 26%}
   .step h3{font-size:18px;margin-bottom:6px}.step p{font-size:14px;color:var(--muted)}
 
-  /* ---------- WHAT'S INSIDE (designed banner) ---------- */
-  #whats-inside{background:var(--lav-bg)}
-  .inside-banner{display:block;width:100%;border-radius:24px;overflow:hidden;line-height:0;
-    box-shadow:0 22px 55px rgba(27,14,56,.14)}
+  /* ---------- WHAT'S INSIDE (designed banner, full-bleed) ---------- */
+  #whats-inside{background:var(--lav-bg);padding:0}
+  .inside-banner{display:block;width:100%;line-height:0}
   .inside-banner img{width:100%;height:auto;display:block}
 
   /* ---------- ROUTINE (full-bleed banner) ---------- */
@@ -323,14 +316,20 @@
   @media (max-width:768px){
     section{padding:60px 0}.wrap{padding:0 20px}.sec-head{margin-bottom:38px}
     #hero{padding:34px 0 56px}
-    .hero-grid{grid-template-columns:1fr;gap:8px}
-    .hero-visual{height:360px;margin-top:18px}
+    .hero-grid{display:flex;flex-direction:column;gap:0;align-items:stretch}
+    .hero-copy{display:contents}
+    .hero-copy .pill{order:1;align-self:flex-start}
+    #hero h1{order:2;margin:14px 0 12px}
+    .hero-sub{order:3;margin-bottom:20px;max-width:none}
+    .hero-visual{order:4;height:330px;margin:2px 0 24px}
+    .hero-price{order:5}
+    .hero-ctas{order:6}
+    .social-proof{order:7;gap:14px;margin-top:24px}
     .hero-disc{width:300px;height:300px}.hero-ring{width:340px;height:340px}.hero-model{width:272px;height:272px}
-    .hero-flosser{display:none}
-    .hero-cob{left:0;top:8px}.hero-cob2{display:none}
+    .hero-flosser{height:268px;right:-10px;bottom:0}
+    .hero-cob{left:0;top:8px}.hero-cob2{right:2px;top:6px}
     .cob{padding:9px 12px}.cob .n{font-size:21px}
-    .social-proof{gap:18px;margin-top:26px}
-    .hero-benefits{grid-template-columns:1fr 1fr;gap:22px 16px;margin-top:38px;padding-top:30px}
+    .pill-float{font-size:11.5px;padding:7px 12px}
     .tiles{grid-template-columns:1fr 1fr;gap:14px}.tile{padding:22px}
     .buy-grid{grid-template-columns:1fr;gap:24px}.buy-visual{padding:22px}
     .cmp-head,.cmp-row{grid-template-columns:1.3fr .85fr .85fr}
@@ -413,21 +412,16 @@
         </div>
         <div class="hero-ctas">
           <a class="btn btn-lime" href="https://perforacare.com/cart?items[]=PER2855:1" target="_blank" rel="noopener noreferrer">Add to Cart <span class="arw">&rarr;</span></a>
-          <a class="btn btn-light" href="#compare">Why it wins</a>
         </div>
         <!-- PLACEHOLDER avatars — replace /assets/avatars/*.jpg with real customer photos -->
         <div class="social-proof">
-          <div class="sp-block">
-            <div class="avatars">
-              <img src="assets/avatars/a1.jpg" alt=""><img src="assets/avatars/a2.jpg" alt=""><img src="assets/avatars/a3.jpg" alt=""><img src="assets/avatars/a4.jpg" alt=""><img src="assets/avatars/a5.jpg" alt="">
-            </div>
-            <div class="sp-text"><b>Sold 10,000+ Units</b><span>Loved by thousands of customers across India.</span></div>
+          <div class="avatars">
+            <img src="assets/avatars/a1.jpg" alt=""><img src="assets/avatars/a2.jpg" alt=""><img src="assets/avatars/a3.jpg" alt=""><img src="assets/avatars/a4.jpg" alt=""><img src="assets/avatars/a5.jpg" alt="">
           </div>
-          <div class="sp-block">
-            <div class="avatars">
-              <img src="assets/avatars/a6.jpg" alt=""><img src="assets/avatars/a7.jpg" alt=""><img src="assets/avatars/a8.jpg" alt=""><img src="assets/avatars/a9.jpg" alt=""><img src="assets/avatars/a10.jpg" alt="">
-            </div>
-            <div class="sp-text"><b>Rated 4.5&#9733; by 2,500+ Users</b><span>Trusted by customers who made water flossing part of their daily routine.</span></div>
+          <div class="sp-stats">
+            <div class="sp-stat"><b>10,000+</b><span>Units Sold</span></div>
+            <span class="sp-bar"></span>
+            <div class="sp-stat"><b>&#9733; 4.5</b><span>2,500+ Reviews</span></div>
           </div>
         </div>
       </div>
@@ -440,12 +434,6 @@
         <div class="hero-cob"><div class="cob"><span class="n">29%</span><span class="l">more effective<br><span>vs. string floss</span></span></div></div>
         <div class="hero-cob2"><span class="pill-float"><svg class="ic" style="width:15px;height:15px"><use href="#i-spark"/></svg> 5 cleaning modes</span></div>
       </div>
-    </div>
-    <div class="hero-benefits">
-      <div class="hb"><span class="hb-ic"><svg class="ic"><use href="#i-tooth"/></svg></span><b>Fights Plaque</b><span>Blasts away the build-up brushing leaves behind.</span></div>
-      <div class="hb"><span class="hb-ic"><svg class="ic"><use href="#i-heart"/></svg></span><b>Healthier Gums</b><span>Daily care that helps gums stop bleeding.</span></div>
-      <div class="hb"><span class="hb-ic"><svg class="ic"><use href="#i-leaf"/></svg></span><b>Fresh Breath</b><span>A cleaner, fresher mouth from morning to night.</span></div>
-      <div class="hb"><span class="hb-ic"><svg class="ic"><use href="#i-water"/></svg></span><b>Deep Cleans</b><span>Reaches between teeth where floss can't.</span></div>
     </div>
   </div>
 </section>
@@ -596,16 +584,6 @@
   </div>
 </section>
 
-<!-- SECTION: WHATS-INSIDE -->
-<section id="whats-inside">
-  <div class="wrap">
-    <picture class="inside-banner">
-      <source media="(max-width:820px)" srcset="assets/whats-inside-square.jpg">
-      <img src="assets/whats-inside-wide.jpg" alt="What's inside the box — 1 Smart Flosser (Black Gold), 5 colour-coded 360° nozzles, USB-C cable, travel pouch, user manual and a 2-year warranty">
-    </picture>
-  </div>
-</section>
-
 <!-- SECTION: EXPERTS (dentist / trust-led) -->
 <section id="experts" class="on-dark">
   <div class="wrap">
@@ -628,6 +606,14 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- SECTION: WHATS-INSIDE -->
+<section id="whats-inside">
+  <picture class="inside-banner">
+    <source media="(max-width:820px)" srcset="assets/whats-inside-square.jpg">
+    <img src="assets/whats-inside-wide.jpg" alt="What's inside the box — 1 Smart Flosser (Black Gold), 5 colour-coded 360° nozzles, USB-C cable, travel pouch, user manual and a 2-year warranty">
+  </picture>
 </section>
 
 <!-- SECTION: UGC -->
