@@ -704,5 +704,200 @@
     });
   });
 </script>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script>
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ─────────────────────────────────────────
+     1. HERO — fires on load (no ScrollTrigger)
+     Total timeline ~1.6s
+  ───────────────────────────────────────── */
+  var heroTl = gsap.timeline({ defaults:{ ease:'power3.out' } });
+
+  /* copy column — staggered from top */
+  heroTl
+    .fromTo('#hero .pill',     { y:-22, opacity:0 }, { y:0, opacity:1, duration:0.5, ease:'back.out(1.4)' }, 0)
+    .fromTo('#hero h1',        { y:30,  opacity:0 }, { y:0, opacity:1, duration:0.6 }, 0.12)
+    .fromTo('.hero-sub',       { y:22,  opacity:0 }, { y:0, opacity:1, duration:0.55 }, 0.26)
+    .fromTo('.hero-price',     { y:18,  opacity:0 }, { y:0, opacity:1, duration:0.5 }, 0.36)
+    .fromTo('.hero-ctas',      { y:18,  opacity:0 }, { y:0, opacity:1, duration:0.5 }, 0.44)
+    .fromTo('.social-proof',   { y:14,  opacity:0 }, { y:0, opacity:1, duration:0.5 }, 0.52)
+    /* visual column — overlaps with copy */
+    .fromTo('.hero-disc',      { scale:0.82, opacity:0 }, { scale:1, opacity:1, duration:0.75 }, 0.18)
+    .fromTo('.hero-ring',      { scale:0.88, opacity:0, rotation:-12 }, { scale:1, opacity:1, rotation:0, duration:0.8 }, 0.28)
+    .fromTo('.hero-model',     { scale:0.9,  opacity:0 }, { scale:1, opacity:1, duration:0.75 }, 0.36)
+    /* callout badges — pop in with bounce */
+    .fromTo('.hero-cob',       { x:-28, opacity:0 }, { x:0, opacity:1, duration:0.55, ease:'back.out(1.7)' }, 0.56)
+    .fromTo('.hero-cob2',      { x:28,  opacity:0 }, { x:0, opacity:1, duration:0.55, ease:'back.out(1.7)' }, 0.62);
+
+  /* ─────────────────────────────────────────
+     2. BUY SECTION
+  ───────────────────────────────────────── */
+  gsap.from(['#buy .buy-head .pill','#buy .buy-head h2','#buy .buy-head p'], {
+    y:30, opacity:0, stagger:0.1, duration:0.65, ease:'power3.out',
+    scrollTrigger:{ trigger:'#buy .buy-head', start:'top 80%', once:true }
+  });
+  gsap.from('.buy-visual', {
+    x:-40, opacity:0, duration:0.75, ease:'power3.out',
+    scrollTrigger:{ trigger:'#buy .buy-grid', start:'top 78%', once:true }
+  });
+  gsap.from('.off-badge', {
+    scale:0, opacity:0, duration:0.5, ease:'back.out(2)', delay:0.3,
+    scrollTrigger:{ trigger:'#buy .buy-grid', start:'top 78%', once:true }
+  });
+  gsap.from(['.buy-price','.buy-gift'], {
+    x:40, opacity:0, stagger:0.1, duration:0.65, ease:'power3.out',
+    scrollTrigger:{ trigger:'#buy .buy-col', start:'top 82%', once:true }
+  });
+  gsap.from('.buy-chips .chip', {
+    y:16, opacity:0, stagger:0.08, duration:0.5, ease:'power3.out',
+    scrollTrigger:{ trigger:'.buy-chips', start:'top 85%', once:true }
+  });
+  gsap.from(['.buy-atc','.buy-bin'], {
+    y:16, opacity:0, stagger:0.1, duration:0.55, ease:'power3.out',
+    scrollTrigger:{ trigger:'.buy-atc', start:'top 88%', once:true }
+  });
+
+  /* ─────────────────────────────────────────
+     3. ROUTINE SECTION
+  ───────────────────────────────────────── */
+  gsap.from(['#routine .eyebrow','#routine h2','#routine p'], {
+    y:24, opacity:0, stagger:0.1, duration:0.65, ease:'power3.out',
+    scrollTrigger:{ trigger:'#routine .sec-head', start:'top 78%', once:true }
+  });
+  gsap.from('.routine-banner img', {
+    scale:1.06, opacity:0, duration:0.9, ease:'power2.out',
+    scrollTrigger:{ trigger:'.routine-banner', start:'top 80%', once:true }
+  });
+
+  /* ─────────────────────────────────────────
+     4. COMPARE SECTION
+  ───────────────────────────────────────── */
+  gsap.from(['#compare .eyebrow','#compare h2','#compare p'], {
+    y:30, opacity:0, stagger:0.1, duration:0.65, ease:'power3.out',
+    scrollTrigger:{ trigger:'#compare .sec-head', start:'top 78%', once:true }
+  });
+  gsap.from('.cmp-head', {
+    y:20, opacity:0, duration:0.6, ease:'power3.out',
+    scrollTrigger:{ trigger:'.cmp', start:'top 80%', once:true }
+  });
+  gsap.from('.cmp-row', {
+    x:-20, opacity:0, stagger:0.08, duration:0.55, ease:'power3.out',
+    scrollTrigger:{ trigger:'.cmp', start:'top 78%', once:true }
+  });
+  gsap.from('.cmp .yes .ic, .cmp .no .ic', {
+    scale:0, opacity:0, stagger:0.05, duration:0.4, ease:'back.out(2)', delay:0.55,
+    scrollTrigger:{ trigger:'.cmp', start:'top 78%', once:true }
+  });
+
+  /* ─────────────────────────────────────────
+     5. HOW TO USE
+  ───────────────────────────────────────── */
+  gsap.from(['#how-to-use .eyebrow','#how-to-use h2'], {
+    y:30, opacity:0, stagger:0.1, duration:0.65, ease:'power3.out',
+    scrollTrigger:{ trigger:'#how-to-use .sec-head', start:'top 78%', once:true }
+  });
+  gsap.from('.step', {
+    y:40, opacity:0, stagger:0.12, duration:0.7, ease:'power3.out',
+    scrollTrigger:{ trigger:'.steps', start:'top 80%', once:true }
+  });
+  gsap.from('.step .sn', {
+    scale:0, opacity:0, stagger:0.12, duration:0.45, ease:'back.out(2)', delay:0.22,
+    scrollTrigger:{ trigger:'.steps', start:'top 80%', once:true }
+  });
+
+  /* ─────────────────────────────────────────
+     6. EXPERTS SECTION
+  ───────────────────────────────────────── */
+  gsap.from('.exp-visual img', {
+    x:-50, opacity:0, duration:0.8, ease:'power3.out',
+    scrollTrigger:{ trigger:'#experts .exp', start:'top 78%', once:true }
+  });
+  gsap.from('.exp-badge', {
+    y:20, scale:0.8, opacity:0, duration:0.55, ease:'back.out(1.7)', delay:0.4,
+    scrollTrigger:{ trigger:'#experts .exp', start:'top 78%', once:true }
+  });
+  gsap.from(['#experts .eyebrow','#experts h2','#experts p'], {
+    x:40, opacity:0, stagger:0.1, duration:0.65, ease:'power3.out',
+    scrollTrigger:{ trigger:'#experts .exp', start:'top 78%', once:true }
+  });
+  gsap.from('.claim', {
+    y:24, opacity:0, stagger:0.1, duration:0.6, ease:'power3.out',
+    scrollTrigger:{ trigger:'.exp-claims', start:'top 82%', once:true }
+  });
+  gsap.from('.claim .ic-circle', {
+    scale:0, opacity:0, stagger:0.1, duration:0.4, ease:'back.out(2)', delay:0.1,
+    scrollTrigger:{ trigger:'.exp-claims', start:'top 82%', once:true }
+  });
+  gsap.from('#experts .btn', {
+    y:16, opacity:0, duration:0.55, ease:'power3.out',
+    scrollTrigger:{ trigger:'#experts .btn', start:'top 88%', once:true }
+  });
+
+  /* ─────────────────────────────────────────
+     7. WHAT'S INSIDE
+  ───────────────────────────────────────── */
+  gsap.from('#whats-inside .inside-banner', {
+    scale:1.04, opacity:0, duration:0.9, ease:'power2.out',
+    scrollTrigger:{ trigger:'#whats-inside', start:'top 80%', once:true }
+  });
+
+  /* ─────────────────────────────────────────
+     8. REVIEWS
+  ───────────────────────────────────────── */
+  gsap.from('.rev-score', {
+    scale:0.9, opacity:0, duration:0.6, ease:'back.out(1.4)',
+    scrollTrigger:{ trigger:'.rev-top', start:'top 80%', once:true }
+  });
+  /* count-up on the 4.8 score */
+  var scoreEl = document.querySelector('.rev-score .big');
+  if(scoreEl){
+    var scoreObj = { val:0 };
+    gsap.to(scoreObj, {
+      val: 4.8, duration:1.2, ease:'power1.out', snap:{ val:0.1 },
+      onUpdate: function(){ scoreEl.textContent = scoreObj.val.toFixed(1); },
+      scrollTrigger:{ trigger:'.rev-top', start:'top 80%', once:true }
+    });
+  }
+  ScrollTrigger.batch('.rev-card', {
+    start:'top 82%', once:true,
+    onEnter: function(els){
+      gsap.from(els, { y:40, opacity:0, stagger:0.12, duration:0.65, ease:'power3.out' });
+    }
+  });
+
+  /* ─────────────────────────────────────────
+     9. FAQ
+  ───────────────────────────────────────── */
+  gsap.from(['#faq .eyebrow','#faq h2'], {
+    y:30, opacity:0, stagger:0.1, duration:0.65, ease:'power3.out',
+    scrollTrigger:{ trigger:'#faq .sec-head', start:'top 78%', once:true }
+  });
+  gsap.from('.faq-item', {
+    y:20, opacity:0, stagger:0.06, duration:0.5, ease:'power3.out',
+    scrollTrigger:{ trigger:'.faq-list', start:'top 85%', once:true }
+  });
+
+  /* ─────────────────────────────────────────
+     10. CTA FINAL
+  ───────────────────────────────────────── */
+  gsap.from(['#cta-final h2','#cta-final p'], {
+    y:36, opacity:0, stagger:0.12, duration:0.7, ease:'power3.out',
+    scrollTrigger:{ trigger:'#cta-final', start:'top 78%', once:true }
+  });
+  gsap.from('#cta-final .btn', {
+    scale:0.88, opacity:0, duration:0.55, ease:'back.out(1.6)',
+    scrollTrigger:{ trigger:'#cta-final', start:'top 78%', once:true }
+  });
+  gsap.from('.mini-trust span', {
+    y:16, opacity:0, stagger:0.1, duration:0.5, ease:'power3.out',
+    scrollTrigger:{ trigger:'.mini-trust', start:'top 88%', once:true }
+  });
+}
+</script>
 </body>
 </html>
