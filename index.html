@@ -863,12 +863,6 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
       scrollTrigger:{ trigger:'.rev-top', start:'top 80%', once:true }
     });
   }
-  ScrollTrigger.batch('.rev-card', {
-    start:'top 82%', once:true,
-    onEnter: function(els){
-      gsap.from(els, { y:40, opacity:0, stagger:0.12, duration:0.65, ease:'power3.out' });
-    }
-  });
 
   /* ─────────────────────────────────────────
      9. FAQ
